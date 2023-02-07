@@ -26,14 +26,11 @@ class TicTacToe():
     def make_move(self, square, letter):
         if self.board[square] == ' ':
             self.board[square] = letter
-            if self.winner(letter): # remove square param from the starting code
+            if self.winner(letter):
                 self.current_winner = letter
             return True
         return False
-    # remove square param from the starting code
     def winner(self, letter):
-        #this function should have the logic to check for the winning condition
-        #for instance, three O's in a straight line
         win_conditions = [
             self.board[0] == self.board[1] == self.board[2] == letter,
             self.board[3] == self.board[4] == self.board[5] == letter,
@@ -56,7 +53,6 @@ class TicTacToe():
         return self.board.count(' ')
 
     def available_moves(self):
-        #this function should compute the available moves on the board
         avail_moves = []
         for i in range(len(self.board)):
             if self.board[i] == " ":
@@ -65,7 +61,6 @@ class TicTacToe():
 
 
 def play(game, x_player, o_player, print_game=True):
-    #the complete logic for the game should be defined here
     print("Welcome to Tic-Tac-Toe")
     print("The board is marked with numbers as following: ")
     game.print_board_nums()
